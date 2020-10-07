@@ -77,9 +77,13 @@ int getsym()
     else if(isComma()) symbol=Comma;
     else if(isLpar()) symbol=LParenthesis;
     else if(isRpar()) symbol=RParenthesis;
-    else{
+    else if(c!=EOF){
         symbol=Unknown;
         return -1;
+    }
+    else{
+        symbol=Unknown;
+        return -2;
     }
     return 0;
 }
@@ -124,6 +128,9 @@ int main(int argc, char **argv)
         res=getsym();
         if(res==-1){
             printf("Unknown\n");
+            return 0;
+        }
+        else if(res==-2){
             return 0;
         }
         printSym(symbol);
