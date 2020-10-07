@@ -123,6 +123,7 @@ int main(int argc, char **argv)
     while(1){
         res=getsym();
         if(res==-1){
+            printf("Unknown\n");
             return 0;
         }
         printSym(symbol);
